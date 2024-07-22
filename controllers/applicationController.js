@@ -95,7 +95,7 @@ export const postApplication = catchAsyncError(async (req, res, next) => {
     );
     return next(new ErrorHandler("Failed to upload resume.", 500));
   }
-  const { name, email, coverletter, phone, address, jobId } = req.body;
+  const { name, email, coverLetter, phone, address, jobId } = req.body;
   const applicantID = {
     user: req.user._id,
     role: "Job Seeker",
@@ -114,7 +114,7 @@ export const postApplication = catchAsyncError(async (req, res, next) => {
   if (
     !name ||
     !email ||
-    !coverletter ||
+    !coverLetter ||
     !phone ||
     !address ||
     !applicantID ||
@@ -126,7 +126,7 @@ export const postApplication = catchAsyncError(async (req, res, next) => {
   const application = await Application.create({
     name,
     email,
-    coverletter,
+    coverLetter,
     phone,
     address,
     applicantID,
